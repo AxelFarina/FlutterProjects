@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "591941929777",
+    "project_id": "dealer-596ef",
+    "storage_bucket": "dealer-596ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591941929777:android:b14de478a48f3fb2bc7e10",
+        "android_client_info": {
+          "package_name": "com.example.cedano_import"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591941929777-dvufavi81a0mnho4d2okqvl5t6224smr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cedano_import",
+            "certificate_hash": "b30e1356bb56318c412330a22a7257e3ba3357ec"
+          }
+        },
+        {
+          "client_id": "591941929777-tbvebb7ba15eb957jvhk7lcrp9aqv7al.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgWms4fn5sg_6XqDvJiObuOvXWVyHIWtI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591941929777-tbvebb7ba15eb957jvhk7lcrp9aqv7al.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
