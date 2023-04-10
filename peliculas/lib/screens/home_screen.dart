@@ -19,6 +19,10 @@ class HomeScreen extends StatelessWidget {
       title: 'Top Rated',
       movieTypes: MovieTypes.topRated,
     ),
+     MovieSlider(
+      title: 'Upcoming',
+      movieTypes: MovieTypes.upComing,
+    ),
   ];
 
   @override

@@ -100,6 +100,10 @@ class _MovieSliderState extends State<MovieSlider> {
         await moviesProvider?.getOnDisplayMovies();
         movies = moviesProvider?.onDisplayMovies ?? [];
         break;
+      case MovieTypes.upComing:
+        await moviesProvider?.getUpcomingMovies();
+        movies = moviesProvider?.upComingMovies ?? [];
+        break;
     }
     setState(() {});
   }

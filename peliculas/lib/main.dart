@@ -5,6 +5,7 @@ import 'package:peliculas/providers/movies_provider.dart';
 import 'package:peliculas/screens/screens.dart';
 import 'package:provider/provider.dart';
 
+
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: ThemeData.dark().primaryColor,systemNavigationBarColor: ThemeData.dark().primaryColor));

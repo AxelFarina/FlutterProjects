@@ -1,5 +1,6 @@
 enum MovieTypes{
   popular,
   topRated,
-  nowPlaying
+  nowPlaying,
+  upComing,
 }

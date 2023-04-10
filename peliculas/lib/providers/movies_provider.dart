@@ -8,6 +8,8 @@ import 'package:peliculas/models/models.dart';
 import 'package:peliculas/models/search_response.dart';
 import 'package:http/retry.dart';
 
+import '../models/upcoming_response.dart';
+
 class MoviesProvider with ChangeNotifier {
   final _apiKey = 'ec4ff1b6182572d3e74735e74ca3a8ef';
   final _baseUrl = 'api.themoviedb.org';
@@ -17,6 +19,7 @@ class MoviesProvider with ChangeNotifier {
   List<Movie> onDisplayMovies = [];
   List<Movie> popularMovies = [];
   List<Movie> topRatedMovies = [];
+  List<Movie> upComingMovies = [];
   List<Result> videoMovies = [];
 
   Map<int, List<Cast>> moviesCast = {};
@@ -24,9 +27,10 @@ class MoviesProvider with ChangeNotifier {
   int _popularPage = 0;
   int _ratedPage = 0;
   int _displayMovies = 0;
+  int _upcomingPage = 0;
 
   final debouncer = Debouncer(
-    duration: Duration(milliseconds: 500),
+    duration: Duration(milliseconds: 0),
   );
 
   final StreamController<List<Movie>> _suggestionStreamController =
@@ -65,6 +69,15 @@ class MoviesProvider with ChangeNotifier {
     final jsonData = await _getJsonData('3/movie/popular', _popularPage);
     final popularResponse = PopularResponse.fromJson(jsonData);
     popularMovies = [...popularMovies, ...popularResponse.results];
+
+    notifyListeners();
+  }
+
+  getUpcomingMovies() async {
+    _upcomingPage++;
+    final jsonData = await _getJsonData('3/movie/upcoming', _upcomingPage);
+    final upcomingResponse = UpcomingResponse.fromJson(jsonData);
+    upComingMovies = [...upComingMovies, ...upcomingResponse.results];
 
     notifyListeners();
   }
@@ -114,10 +127,10 @@ class MoviesProvider with ChangeNotifier {
       _suggestionStreamController.add(results);
     };
 
-    final timer = Timer.periodic(Duration(milliseconds: 300), (_) {});
+    //final timer = Timer.periodic(Duration(milliseconds: 300), (_) {});
     debouncer.value = searchTerm;
 
-    Future.delayed(Duration(milliseconds: 301)).then((_) => timer.cancel());
+    //Future.delayed(Duration(milliseconds: 301)).then((_) => timer.cancel());
   }
 
   Future<bool> isConnected() async {
@@ -146,5 +159,6 @@ class MoviesProvider with ChangeNotifier {
     getOnDisplayMovies();
     getTopRatedMovies();
     getPopularMovies();
+    getUpcomingMovies();
   }
 }
